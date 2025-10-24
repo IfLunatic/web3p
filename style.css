@@ -1,0 +1,138 @@
+:root{
+  --text: #111;
+  --text-invert: #fff;
+  --bg: #fafafa;
+  --bg-alt: #f1f3f5;
+  --brand: #0d6efd;
+  --overlay: rgba(0,0,0,.35);
+  --maxw: 1100px;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+
+body{
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.55;
+  scroll-behavior: smooth; 
+}
+
+.container{
+  width: 100%;
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+.container.narrow{ max-width: 900px; }
+
+h1, h2, h3{
+  line-height: 1.2;
+  margin: 0 0 .75rem 0;
+}
+
+.site-header{
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #ffffffcc; 
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid #e9ecef;
+}
+
+.logo{ font-size: 1.125rem; font-weight: 700; }
+
+.site-header .container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: .75rem;
+}
+
+.nav a{
+  color: inherit;
+  text-decoration: none;
+  margin-left: 1rem;
+  padding: .35rem .5rem;
+  border-radius: .4rem;
+}
+
+.nav a:hover{ background: #00000008; }
+
+.site-footer{
+  border-top: 1px solid #e9ecef;
+  padding: 2rem 0;
+  text-align: center;
+  background: #fff;
+  color: #666;
+}
+
+.section{
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+
+.section.content{
+  background: #fff;
+}
+
+.section.content.alt{
+  background: var(--bg-alt);
+}
+
+.inner{
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: var(--text-invert);
+  padding: clamp(2.5rem, 6vw, 6rem) 1.25rem;
+  max-width: 800px;
+}
+
+.inner h2{ font-size: clamp(1.75rem, 4vw, 2.75rem); }
+.inner p{ font-size: clamp(1rem, 2.2vw, 1.125rem); margin: .5rem 0 1.25rem; }
+
+.btn{
+  display: inline-block;
+  text-decoration: none;
+  color: #fff;
+  background: var(--brand);
+  padding: .7rem 1.1rem;
+  border-radius: .6rem;
+  font-weight: 600;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.btn:hover{ transform: translateY(-1px); box-shadow: 0 6px 18px #0d6efd33; }
+
+.parallax{
+  background-attachment: scroll;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 0; 
+  color: var(--text-invert);
+  isolation: isolate; 
+  will-change: background-position; 
+}
+
+.parallax::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--overlay);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.bg-1{ background-image: url("https://picsum.photos/seed/mountains/1920/1080"); }
+.bg-2{ background-image: url("https://picsum.photos/seed/forest/1920/1080"); }
+.bg-3{ background-image: url("https://picsum.photos/seed/city/1920/1080"); }
+
+
+@media (prefers-reduced-motion: reduce){
+  .parallax{ background-attachment: fixed; }
+}

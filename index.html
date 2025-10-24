@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Паралакс із jQuery — приклад</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="logo">Паралакс-демо</h1>
+      <nav class="nav">
+        <a href="#hero">Головна</a>
+        <a href="#about">Про ефект</a>
+        <a href="#gallery">Галерея</a>
+        <a href="#contact">Контакти</a>
+      </nav>
+    </div>
+  </header>
+
+  <section id="hero" class="section parallax bg-1" data-speed="0.35" aria-label="Головний екран із фоновим зображенням">
+    <div class="inner">
+      <h2>Плавний паралакс під час прокрутки</h2>
+      <p>Фон рухається повільніше за контент, створюючи глибину.</p>
+      <a class="btn" href="#about">Дізнатись більше</a>
+    </div>
+  </section>
+
+  <section id="about" class="section content">
+    <div class="container narrow">
+      <h2>Що таке паралакс?</h2>
+      <p>
+        Ефект паралаксу — це візуальна техніка, за якої фон рухається з іншою
+        швидкістю порівняно з переднім планом. У вебі це створює відчуття
+        глибини та плавності під час прокручування сторінки.
+      </p>
+      <p>
+        У цьому прикладі паралакс реалізовано за допомогою jQuery: ми обчислюємо
+        положення кожної фонової секції відносно прокрутки та динамічно
+        змінюємо <code>background-position</code>.
+      </p>
+    </div>
+  </section>
+
+  <section id="gallery" class="section parallax bg-2" data-speed="0.5" aria-label="Фонова секція з другим зображенням">
+    <div class="inner">
+      <h2>Різні швидкості руху</h2>
+      <p>Кожна секція має власний коефіцієнт швидкості через <code>data-speed</code>.</p>
+    </div>
+  </section>
+
+  <section class="section content alt">
+    <div class="container narrow">
+      <h2>Деталі реалізації</h2>
+      <ul>
+        <li>Подія <code>scroll</code> обробляється з <em>requestAnimationFrame</em> для плавності.</li>
+        <li>Оновлення фону відбувається лише для секцій у межах в’юпорту.</li>
+        <li>Передбачено повагу до налаштування користувача <em>prefers-reduced-motion</em>.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contact" class="section parallax bg-3" data-speed="0.25" aria-label="Третя фонова секція">
+    <div class="inner">
+      <h2>Готові додати паралакс?</h2>
+      <p>Скопіюйте цей шаблон і підставте власні зображення.</p>
+      <a class="btn" href="#hero">Вгору</a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2025 Паралакс-демо. Приклад для навчання.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <noscript>
+    <style>
+      .parallax { background-attachment: fixed; }
+    </style>
+  </noscript>
+</body>
+</html>
